@@ -66,19 +66,19 @@ Delete this class.
 how would you refactor the code?]
 
 ## Code Smell: [Write the code smell name]
-
+Dispensable
 ### Code Smell Category: [Write the code smell category name]
-
+Lazy Class
 ### List of classes and line numbers involved:
-
+*class Worker
 * [Write a class and list of line numbers, one class per asterisk, that describe the smell]
 
 ### Description:
-
+Class Worker does not contain anything inside. And it is never used.
 [In your own words, explain how this particular code smells.]
 
 ### Solution:
-
+Delete this class.
 [In your own words, explain how you might solve this code smell:
 how would you refactor the code?]
 ==== End template ====
