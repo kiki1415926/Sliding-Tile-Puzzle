@@ -81,6 +81,23 @@ Class Worker does not contain anything inside. And it is never used.
 Delete this class.
 [In your own words, explain how you might solve this code smell:
 how would you refactor the code?]
+
+## Code Smell: [Write the code smell name]
+Bloaters
+### Code Smell Category: [Write the code smell category name]
+Long Method
+### List of classes and line numbers involved:
+*class WarehouseSimulation, line 42-97.
+* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
+
+### Description:
+Method "start" is much longer than 15 lines of actual code.
+[In your own words, explain how this particular code smells.]
+
+### Solution:
+Use extract method to separate this method.
+[In your own words, explain how you might solve this code smell:
+how would you refactor the code?]
 ==== End template ====
 
 # List of code smells
