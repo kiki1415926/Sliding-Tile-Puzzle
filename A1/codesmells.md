@@ -26,6 +26,58 @@ condition to "(nextEvent.startsWith("Picker")) or (nextEvent.startsWith("Sequenc
 In line 71, change the "else if" condition to "(nextEvent.endsWith("marshaling")) or (nextEvent.endsWith("sequences")).
 [In your own words, explain how you might solve this code smell:
 how would you refactor the code?]
+
+## Code Smell: [Write the code smell name]
+Object-Orientation Abusers
+### Code Smell Category: [Write the code smell category name]
+Switch Statements
+### List of classes and line numbers involved:
+*class WarehouseSimulation, line 54-90.
+* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
+
+### Description:
+These lines of code use a sequence of if statements.
+[In your own words, explain how this particular code smells.]
+
+### Solution:
+Use inheritance, I can use subclasses which inheritance the class WarehouseSimulation. For example, use  "class 
+OrderNextEvent extends WarehouseSimulation" to replace if statement "nextEvent.startsWith("Order")".
+[In your own words, explain how you might solve this code smell:
+how would you refactor the code?]
+
+## Code Smell: [Write the code smell name]
+
+### Code Smell Category: [Write the code smell category name]
+
+### List of classes and line numbers involved:
+
+* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
+
+### Description:
+
+[In your own words, explain how this particular code smells.]
+
+### Solution:
+
+[In your own words, explain how you might solve this code smell:
+how would you refactor the code?]
+
+## Code Smell: [Write the code smell name]
+
+### Code Smell Category: [Write the code smell category name]
+
+### List of classes and line numbers involved:
+
+* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
+
+### Description:
+
+[In your own words, explain how this particular code smells.]
+
+### Solution:
+
+[In your own words, explain how you might solve this code smell:
+how would you refactor the code?]
 ==== End template ====
 
 # List of code smells
