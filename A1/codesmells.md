@@ -101,3 +101,6 @@ how would you refactor the code?]
 ==== End template ====
 
 # List of code smells
+Dispensable: Duplicate Code, Dead Code, Lazy Class
+Object-Orientation Abusers: Switch Statements
+Bloaters: Long Method
