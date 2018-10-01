@@ -13,7 +13,7 @@ Dispensable
 ### Code Smell Category: [Write the code smell category name]
 Duplicate Code
 ### List of classes and line numbers involved:
-*class WarehouseManager, line 97-104, line 144-151.
+* class WarehouseManager, line 97-104, line 144-151.
 * [Write a class and list of line numbers, one class per asterisk, that describe the smell]
 
 ### Description:
@@ -33,7 +33,7 @@ Dispensable
 ### Code Smell Category: [Write the code smell category name]
 Dead Code
 ### List of classes and line numbers involved:
-*class OrderListManager, all lines
+* class OrderListManager, all lines
 * [Write a class and list of line numbers, one class per asterisk, that describe the smell]
 
 ### Description:
@@ -50,7 +50,7 @@ Dispensable
 ### Code Smell Category: [Write the code smell category name]
 Lazy Class
 ### List of classes and line numbers involved:
-*class Worker
+* class Worker
 * [Write a class and list of line numbers, one class per asterisk, that describe the smell]
 
 ### Description:
@@ -67,7 +67,7 @@ Bloaters
 ### Code Smell Category: [Write the code smell category name]
 Long Method
 ### List of classes and line numbers involved:
-*class WarehouseSimulation, line 42-97.
+* class WarehouseSimulation, line 42-97.
 * [Write a class and list of line numbers, one class per asterisk, that describe the smell]
 
 ### Description:
@@ -91,8 +91,8 @@ Object-Orientation Abusers
 ### Code Smell Category: [Write the code smell category name]
 Alternative Classes with Different Interfaces
 ### List of classes and line numbers involved:
-*class PickerOrderList
-*class SequencerOrderList
+* class PickerOrderList
+* class SequencerOrderList
 * [Write a class and list of line numbers, one class per asterisk, that describe the smell]
 
 ### Description:
