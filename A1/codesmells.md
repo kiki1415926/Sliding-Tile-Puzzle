@@ -13,7 +13,6 @@ Dispensable
 ### Code Smell Category: [Write the code smell category name]
 Duplicate Code
 ### List of classes and line numbers involved:
-*class WarehouseSimulation, line 66-78 and line 79-90.
 *class WarehouseManager, line 97-104, line 144-151.
 * [Write a class and list of line numbers, one class per asterisk, that describe the smell]
 
@@ -23,28 +22,7 @@ The codes are nearly identical. They do almost the same thing.
 [In your own words, explain how this particular code smells.]
 
 ### Solution:
-For class WarehouseSimulation, delete codes from line 79 to 90, and add condition in line 66-78. In line 66, 
-change the "else if" condition to "(nextEvent.startsWith("Picker")) or (nextEvent.startsWith("Sequencer")). In line 71, 
-change the "else if" condition to "(nextEvent.endsWith("marshaling")) or (nextEvent.endsWith("sequences")).
-For class WarehouseManager, delete method pickerToMarshaling, and merge it with method addPicker.
-[In your own words, explain how you might solve this code smell:
-how would you refactor the code?]
-
-## Code Smell: [Write the code smell name]
-Object-Orientation Abusers
-### Code Smell Category: [Write the code smell category name]
-Switch Statements
-### List of classes and line numbers involved:
-*class WarehouseSimulation, line 54-90.
-* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
-
-### Description:
-These lines of code use a sequence of if statements.
-[In your own words, explain how this particular code smells.]
-
-### Solution:
-Use inheritance, I can use subclasses which inheritance the class WarehouseSimulation. For example, use  "class 
-OrderNextEvent extends WarehouseSimulation" to replace if statement "nextEvent.startsWith("Order")".
+Delete method pickerToMarshaling, and merge it with method addPicker.
 [In your own words, explain how you might solve this code smell:
 how would you refactor the code?]
 
@@ -95,12 +73,34 @@ Method "start" is much longer than 15 lines of actual code.
 [In your own words, explain how this particular code smells.]
 
 ### Solution:
-Use extract method to separate this method.
+There is duplicate Code from line 66-90, delete codes from line 79 to 90, and add condition in line 66-78. In line 66, 
+change the "else if" condition to "(nextEvent.startsWith("Picker")) or (nextEvent.startsWith("Sequencer")). In line 71, 
+change the "else if" condition to "(nextEvent.endsWith("marshaling")) or (nextEvent.endsWith("sequences")).
+Also, use inheritance. Use subclasses which inheritance the class WarehouseSimulation. For example, use "class 
+OrderNextEvent extends WarehouseSimulation" to replace if statement "nextEvent.startsWith("Order")".
 [In your own words, explain how you might solve this code smell:
 how would you refactor the code?]
 ==== End template ====
 
+## Code Smell: [Write the code smell name]
+Object-Orientation Abusers
+### Code Smell Category: [Write the code smell category name]
+Alternative Classes with Different Interfaces
+### List of classes and line numbers involved:
+*class PickerOrderList
+*class SequencerOrderList
+* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
+
+### Description:
+Class PickerOrderList and class SequencerOrderList use just different method names but actually do quite similar 
+functionality.
+[In your own words, explain how this particular code smells.]
+
+### Solution:
+Delete class SequencerOrderList, and just use class PickerOrderList to do things which original SequencerOrderList do.
+[In your own words, explain how you might solve this code smell:
+how would you refactor the code?]
 # List of code smells
 Dispensable: Duplicate Code, Dead Code, Lazy Class
-Object-Orientation Abusers: Switch Statements
+Object-Orientation Abusers: Alternative Classes with Different Interfaces
 Bloaters: Long Method
