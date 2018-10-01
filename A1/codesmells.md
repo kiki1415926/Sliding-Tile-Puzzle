@@ -17,12 +17,14 @@ Duplicate Code
 * [Write a class and list of line numbers, one class per asterisk, that describe the smell]
 
 ### Description:
-The codes are nearly identical. They do almost the same thing.
+Method addPicker and pickerToMarshaling are nearly identical. Codes in line 97-104 and in line 144-151 are totally the 
+same.
 
 [In your own words, explain how this particular code smells.]
 
 ### Solution:
-Delete method pickerToMarshaling, and merge it with method addPicker.
+Write a new method pick to do what the code in line 97-104 did, and implement this method in addPicker and 
+pickerToMarshaling.
 [In your own words, explain how you might solve this code smell:
 how would you refactor the code?]
 
