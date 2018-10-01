@@ -77,7 +77,9 @@ There is duplicate Code from line 66-90, delete codes from line 79 to 90, and ad
 change the "else if" condition to "(nextEvent.startsWith("Picker")) or (nextEvent.startsWith("Sequencer")). In line 71, 
 change the "else if" condition to "(nextEvent.endsWith("marshaling")) or (nextEvent.endsWith("sequences")).
 Also, use inheritance. Use subclasses which inheritance the class WarehouseSimulation. For example, use "class 
-OrderNextEvent extends WarehouseSimulation" to replace if statement "nextEvent.startsWith("Order")".
+OrderNextEvent extends WarehouseSimulation" to replace if statement "nextEvent.startsWith("Order")" and use "class 
+PickerSequencerNextEvent extends WarehouseSimulation" to replace else if statement "nextEvent.startsWith("Picker") or 
+nextEvent.startsWith("Sequencer")".
 [In your own words, explain how you might solve this code smell:
 how would you refactor the code?]
 ==== End template ====
@@ -92,12 +94,14 @@ Alternative Classes with Different Interfaces
 * [Write a class and list of line numbers, one class per asterisk, that describe the smell]
 
 ### Description:
-Class PickerOrderList and class SequencerOrderList use just different method names but actually do quite similar 
-functionality.
+Class PickerOrderList and class SequencerOrderList use similar methods and do quite similar functionality.
+For example, the method "getIDs" in both classes do almost the same thing except class PickerOrderList use 
+pickerSKUOrder while class SequencerOrderList use sequencerSKUOrder. 
 [In your own words, explain how this particular code smells.]
 
 ### Solution:
-Delete class SequencerOrderList, and just use class PickerOrderList to do things which original SequencerOrderList do.
+Write a superclass OrderList, let class PickerOrderList and class SequencerOrderList extends OrderList, write 
+methods toString() and getIDs() in superclass OrderList.
 [In your own words, explain how you might solve this code smell:
 how would you refactor the code?]
 # List of code smells
