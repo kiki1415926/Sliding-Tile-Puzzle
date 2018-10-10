@@ -1,17 +1,20 @@
 package fall2018.csc2017.slidingtiles;
 
+import android.support.annotation.NonNull;
+
 import java.util.Observable;
 
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * The sliding tiles board.
- * TODO: Make this implement Iterable<Tile>.
  */
-public class Board extends Observable implements Serializable {
+
+public class Board extends Observable implements Iterable<Tile>, Serializable {
 
     /**
      * The number of rows.
@@ -19,7 +22,7 @@ public class Board extends Observable implements Serializable {
     final static int NUM_ROWS = 4;
 
     /**
-     * The number of rows.
+     * The number of rows.=
      */
     final static int NUM_COLS = 4;
 
@@ -46,10 +49,13 @@ public class Board extends Observable implements Serializable {
 
     /**
      * Return the number of tiles on the board.
+     *
      * @return the number of tiles on the board
      */
     int numTiles() {
-        // TODO: fix me
+        if (Board.NUM_ROWS != 0 && Board.NUM_COLS != 0) {
+            return Board.NUM_ROWS * Board.NUM_COLS;
+        }
         return -1;
     }
 
@@ -73,8 +79,9 @@ public class Board extends Observable implements Serializable {
      * @param col2 the second tile col
      */
     void swapTiles(int row1, int col1, int row2, int col2) {
-        // TODO: swap
-
+        Tile temp = tiles[row1][col1];
+        tiles[row1][col1] = tiles[row2][col2];
+        tiles[row2][col2] = temp;
         setChanged();
         notifyObservers();
     }
@@ -84,5 +91,37 @@ public class Board extends Observable implements Serializable {
         return "Board{" +
                 "tiles=" + Arrays.toString(tiles) +
                 '}';
+    }
+
+
+    @NonNull
+    @Override
+    public Iterator<Tile> iterator() {
+        return new BoardIterator();
+    }
+
+    private class BoardIterator implements Iterator<Tile> {
+
+        private int row;
+        private int col;
+
+        @Override
+        public boolean hasNext() {
+            return row < Board.NUM_ROWS && col < Board.NUM_COLS;
+        }
+
+        @Override
+        public Tile next() {
+            if (hasNext()) {
+                if (Board.NUM_COLS - 1 == col) {
+                    Tile temp = getTile(row, col);
+                    row++;
+                    col = 0;
+                    return temp;
+                }
+                return getTile(row, col++);
+            }
+            throw new NoSuchElementException();
+        }
     }
 }

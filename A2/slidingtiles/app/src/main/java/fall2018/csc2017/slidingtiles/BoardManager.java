@@ -1,8 +1,10 @@
 package fall2018.csc2017.slidingtiles;
 
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -17,6 +19,7 @@ class BoardManager implements Serializable {
 
     /**
      * Manage a board that has been pre-populated.
+     *
      * @param board the board
      */
     BoardManager(Board board) {
@@ -50,8 +53,18 @@ class BoardManager implements Serializable {
      * @return whether the tiles are in row-major order
      */
     boolean puzzleSolved() {
+
+        Iterator<Tile> ite = this.board.iterator();
+
         boolean solved = true;
-        // TODO: fix me
+        Tile cur = ite.next();
+        while (ite.hasNext()) {
+            Tile next = ite.next();
+            if (cur.getId() > next.getId()) {
+                solved = false;
+            }
+            cur = next;
+        }
         return solved;
     }
 
@@ -62,8 +75,7 @@ class BoardManager implements Serializable {
      * @return whether the tile at position is surrounded by a blank tile
      */
     boolean isValidTap(int position) {
-
-        int row = position / Board.NUM_COLS;
+        int row = position / Board.NUM_ROWS;
         int col = position % Board.NUM_COLS;
         int blankId = board.numTiles();
         // Are any of the 4 the blank tile?
@@ -87,8 +99,19 @@ class BoardManager implements Serializable {
         int row = position / Board.NUM_ROWS;
         int col = position % Board.NUM_COLS;
         int blankId = board.numTiles();
-
-        // TODO: figure out when to call board.swapTiles. Specifically, if any of the neighbouring
+        Tile above = row == 0 ? null : board.getTile(row - 1, col);
+        Tile below = row == Board.NUM_ROWS - 1 ? null : board.getTile(row + 1, col);
+        Tile left = col == 0 ? null : board.getTile(row, col - 1);
+        Tile right = col == Board.NUM_COLS - 1 ? null : board.getTile(row, col + 1);
+        if (above != null && above.getId() == blankId) {
+            board.swapTiles(row, col, row - 1, col);
+        } else if (below != null && below.getId() == blankId) {
+            board.swapTiles(row, col, row + 1, col);
+        } else if (left != null && left.getId() == blankId) {
+            board.swapTiles(row, col, row, col - 1);
+        } else if (right != null && right.getId() == blankId) {
+            board.swapTiles(row, col, row, col + 1);
+        }
         // tiles is the blank tile, swap by calling Board's swap method.
     }
 
