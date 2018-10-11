@@ -100,16 +100,19 @@ class BoardManager implements Serializable {
         int col = position % Board.NUM_COLS;
         int blankId = board.numTiles();
         Tile above = row == 0 ? null : board.getTile(row - 1, col);
-        Tile below = row == Board.NUM_ROWS - 1 ? null : board.getTile(row + 1, col);
-        Tile left = col == 0 ? null : board.getTile(row, col - 1);
-        Tile right = col == Board.NUM_COLS - 1 ? null : board.getTile(row, col + 1);
         if (above != null && above.getId() == blankId) {
             board.swapTiles(row, col, row - 1, col);
-        } else if (below != null && below.getId() == blankId) {
+        }
+        Tile below = row == Board.NUM_ROWS - 1 ? null : board.getTile(row + 1, col);
+        if(below != null && below.getId() == blankId){
             board.swapTiles(row, col, row + 1, col);
-        } else if (left != null && left.getId() == blankId) {
+        }
+        Tile left = col == 0 ? null : board.getTile(row, col - 1);
+        if(left != null && left.getId() == blankId){
             board.swapTiles(row, col, row, col - 1);
-        } else if (right != null && right.getId() == blankId) {
+        }
+        Tile right = col == Board.NUM_COLS - 1 ? null : board.getTile(row, col + 1);
+        if(right != null && right.getId() == blankId){
             board.swapTiles(row, col, row, col + 1);
         }
         // tiles is the blank tile, swap by calling Board's swap method.
