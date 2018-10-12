@@ -27,13 +27,6 @@ class BoardManager implements Serializable {
     }
 
     /**
-     * Return the current board.
-     */
-    Board getBoard() {
-        return board;
-    }
-
-    /**
      * Manage a new shuffled board.
      */
     BoardManager() {
@@ -47,6 +40,12 @@ class BoardManager implements Serializable {
         this.board = new Board(tiles);
     }
 
+    /**
+     * Return the current board.
+     */
+    Board getBoard() {
+        return board;
+    }
 
     /**
      * Return whether the tiles are in row-major order.
@@ -100,20 +99,16 @@ class BoardManager implements Serializable {
         int row = position / Board.NUM_ROWS;
         int col = position % Board.NUM_COLS;
         int blankId = board.numTiles();
-        Tile above = row == 0 ? null : board.getTile(row - 1, col);
-        if (above != null && above.getId() == blankId) {
+        if (row != 0 && board.getTile(row - 1, col).getId() == blankId) {
             board.swapTiles(row, col, row - 1, col);
         }
-        Tile below = row == Board.NUM_ROWS - 1 ? null : board.getTile(row + 1, col);
-        if(below != null && below.getId() == blankId){
+        if(row != Board.NUM_ROWS - 1  && board.getTile(row + 1, col).getId() == blankId){
             board.swapTiles(row, col, row + 1, col);
         }
-        Tile left = col == 0 ? null : board.getTile(row, col - 1);
-        if(left != null && left.getId() == blankId){
+        if(col != 0 && board.getTile(row, col - 1).getId() == blankId){
             board.swapTiles(row, col, row, col - 1);
         }
-        Tile right = col == Board.NUM_COLS - 1 ? null : board.getTile(row, col + 1);
-        if(right != null && right.getId() == blankId){
+        if(col != Board.NUM_COLS - 1 && board.getTile(row, col + 1).getId() == blankId){
             board.swapTiles(row, col, row, col + 1);
         }
         // tiles is the blank tile, swap by calling Board's swap method.
