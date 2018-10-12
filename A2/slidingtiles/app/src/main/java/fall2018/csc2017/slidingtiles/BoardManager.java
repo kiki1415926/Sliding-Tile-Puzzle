@@ -47,10 +47,11 @@ class BoardManager implements Serializable {
         this.board = new Board(tiles);
     }
 
+
     /**
      * Return whether the tiles are in row-major order.
      *
-     * @return whether the tiles are in row-major order
+     * @return whether the tiles are in row-major order.
      */
     boolean puzzleSolved() {
 

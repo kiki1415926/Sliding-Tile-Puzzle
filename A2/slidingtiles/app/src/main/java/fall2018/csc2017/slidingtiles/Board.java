@@ -94,15 +94,29 @@ public class Board extends Observable implements Iterable<Tile>, Serializable {
     }
 
 
+    /**
+     * Return a new BoardIterator.
+     *
+     * @return a new BoardIterator
+     */
     @NonNull
     @Override
     public Iterator<Tile> iterator() {
         return new BoardIterator();
     }
 
+    /**
+     * Iterate over tiles in a range of total number of tiles.
+     */
     private class BoardIterator implements Iterator<Tile> {
 
+        /**
+         * The row number of the tile.
+         */
         private int row;
+        /**
+         * The column number of the tile.
+         */
         private int col;
 
         @Override
