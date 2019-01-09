@@ -1,0 +1,49 @@
+Dear Runqi,
+
+This is the feedback for Phase 2. You were in group group_0704, and here are
+the UTORids of your team members:
+
+	birunqi, liusha16, xuquan, zhan3373, zouqi
+
+When you are working on a team, in a professional setting, good design is related to being a good team member. 
+
+1. Is it easy for other team members to read and understand your code? (Consider your Javadoc and comments, and line-by-line style.) 
+
+2. Is it easy for other people to extend your code and add new features? (Consider the Open/Closed Principle and Test Driven Design.)
+
+3. Is it easy for other team members to write code that interacts with yours? (Consider encapsulation, naming conventions, the use of interfaces, etc.)
+
+The list continues, and includes almost every topic from CSC207.
+
+In your project you made good use of Factory, Dependency Injection, Singleton, and Iterator, design patterns, as well as interfaces, serialization, and packages which nicely organized most of your classes.
+
+Users playing your game will see a change password option, a visually interesting Colour Matching game and Flip to Win. We agree that it makes sense not to include undo for Flip To Win. The instructions for Flip to Win were a bit long. All you need is the goal of the game and what constitutes a move.
+
+A good next step would be to continue your good work with inheritance. MoveableTile superclass was a good idea. It would be good to have a NonMoveableTile class to make it easier to add new games.
+
+As mentioned above, it is important that other people can quickly understand your code. This means using class names, method names, and variable names that are informative and follow the Java naming conventions. It also means including enough comments and Javadoc to understand the code without giving the reader too much to read.
+
+As you continue to practice object-oriented programming, you will see that your past experience informs your decisions. It will be easier to make good design decisions before you code, rather than refactoring at every step. 
+
+We hope that you enjoyed this course and that your experience with the project has been useful to you.
+
+
+Here is your grade breakdown for the project. The "Design" mark is the letter
+grade for your Phase 2 software design converted to a numeric mark, using the
+upper end of the appropriate grade range. Here are a few examples: A has a
+range of 85-89, so we would use 89%, resulting in a grade of 10.68/12; another
+example is B-, which has a range of 70-72, so we would use 72%, or 8.64/12.
+You can find the full scale here:
+
+    http://www.artsci.utoronto.ca/newstudents/transition/academic/grading
+
+If the Phase 2 "Total" percentage was higher than your Phase 1 mark, we
+replaced your Phase 1 mark with your Phase 2 mark when calculating your
+overall course grade.
+
+   utor: birunqi 
+   sec: 5101
+   testing: 2 / 2
+   presentation: 3 / 3
+   design: 10.08 / 12
+   p2_total: 15.08 / 17
